@@ -139,9 +139,13 @@ angular.module('technicalQualityApp')
 
     // Private constructor
     function RuleSet() {
-      this.getCathegories = function () {
+
+      this.getCathegorie = function(code) {
+        return cathegories[code];
+      }
+      this.getCathegories = function() {
         var result = this._cathegoryArray;
-        if ( ! result ){
+        if ( !result ){
             result = [];
             Object.keys(cathegories).map(function(value, index) {
                 result.push({

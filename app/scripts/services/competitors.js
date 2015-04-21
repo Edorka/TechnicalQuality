@@ -26,7 +26,10 @@ angular.module('technicalQualityApp')
             surnames: newCompetitor.surnames || '',
             cathegorie: newCompetitor.cathegorie
         });
-    }
+    };
+    this.get = function getCompetitor(id){
+        return this._list[id - 1]; 
+    };
     this.remove = function remove(id){
         var position = null; 
         var index = 0;
@@ -39,5 +42,10 @@ angular.module('technicalQualityApp')
                 index += 1;
             }
         }
+        while ( index < this._list.length ){// renumerate the list
+            var current = this._list[ index ];
+            current.id = index += 1;
+        }
+        this._lastId = index += 1;
     }  
   });

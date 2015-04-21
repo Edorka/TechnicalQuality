@@ -27,13 +27,13 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/execution', {
+      .when('/execution/:cathegorie/:competitorId', {
         templateUrl: 'views/execution.html',
         controller: 'ExecutionCtrl'
       })
-      .when('/execution', {
-        templateUrl: 'views/execution.html',
-        controller: 'ExecutionCtrl'
+      .when('/summary', {
+        templateUrl: 'views/summary.html',
+        controller: 'SummaryCtrl'
       })
       .otherwise({
         redirectTo: '/'

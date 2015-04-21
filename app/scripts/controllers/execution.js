@@ -8,10 +8,10 @@
  * Controller of the technicalQualityApp
  */
 angular.module('technicalQualityApp')
-  .controller('ExecutionCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ExecutionCtrl', function ($scope, $routeParams, ruleSet, competitors) {
+        var cathegorie = $routeParams.cathegorie;
+        var competitorId = $routeParams.competitorId;
+        $scope.cathegorieDescription = ruleSet.getCathegorie(cathegorie);
+        $scope.competitor = competitors.get(competitorId);
+        $scope.cathegorieDescription = ruleSet.getCathegorie(cathegorie);
   });
