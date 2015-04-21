@@ -46,8 +46,9 @@
             <td>
                 {{competitor.cathegorie.label}}
             </td>
-            <td>
-                <button class="btn btn-default btn-sm"  ng-click="performance(competitor)" >Perform</button>
+            <td  ng-switch on="competitor.score || '_undefined_'">
+                <button  ng-switch-when="_undefined_" class="btn btn-default btn-sm" ng-click="performance(competitor)" >Perform</button>
+                <a class="score" ng-switch-default>{{competitor.score | number:2}}</a>
             </td>
             <td>
                 <button class="btn btn-default btn-sm" ng-click="remove(competitor)">delete</button>
