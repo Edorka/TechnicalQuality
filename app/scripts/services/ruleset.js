@@ -16,9 +16,11 @@ angular.module('technicalQualityApp')
         'nanquan': 'Nan Quan',
     };
     var deductions = {};
-    deductions['changquan'] = {
+    deductions.changquan = {
 		'balances': {
+            'order': 0,
 			'img' : 'balances',
+			'name' : 'Balances',
 			'movements': [
 				{
 					'id': 10,
@@ -76,7 +78,9 @@ angular.module('technicalQualityApp')
 				}
 			]
 		},
-		'leg techniques': {
+		'leg-techniques': {
+            'order': 1,
+			'name' : 'Leg-Technique',
 			'img' : 'leg-techniques',
 			'movements': [
 				{
@@ -132,23 +136,37 @@ angular.module('technicalQualityApp')
 				}
 			]
 		},
-		'Jumps': {},
-		'Stances': {},
-		'Apparatus': {}
+		'jumps': {
+            'order': 2,
+			'name' : 'Jumps',
+			'img' : 'jump-techniques',
+			'movements': []
+        },
+		'stances': {
+            'order': 3,
+			'name' : 'Stances',
+			'img' : 'stances-techniques',
+			'movements': []},
+		'apparatus': {
+            'order': 4,
+			'name' : 'Apparatus wielding',
+			'img' : 'apparatus-techniques',
+			'movements': []}
     };
 
     // Private constructor
     function RuleSet() {
 
-      this.getCathegorie = function(code) {
+      this.getCathegory = function(code) {
         return cathegories[code];
-      }
+      };
       this.getCathegories = function() {
         var result = this._cathegoryArray;
         if ( !result ){
             result = [];
             Object.keys(cathegories).map(function(value, index) {
                 result.push({
+                    position: index,
                     value: value,
                     label: cathegories[value] 
                 });
@@ -157,8 +175,8 @@ angular.module('technicalQualityApp')
         }
         return result;
       };
-      this.getDeductions = function (cathegorie) {
-        return deductions[cathegorie];
+      this.getDeductions = function (cathegory) {
+        return deductions[cathegory];
       };
     }
 

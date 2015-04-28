@@ -9,13 +9,15 @@
  */
 angular.module('technicalQualityApp')
   .controller('ExecutionCtrl', function ($scope, $location, $routeParams, ruleSet, competitors) {
-        var cathegorie = $routeParams.cathegorie;
+        var cathegory = $routeParams.cathegory;
         var competitorId = $routeParams.competitorId;
-        $scope.cathegorieDescription = ruleSet.getCathegorie(cathegorie);
-        $scope.competitor = competitors.get(competitorId);
-        $scope.cathegorieDescription = ruleSet.getCathegorie(cathegorie);
+        $scope.score = 5.00;
+        $scope.cathegoryDescription = ruleSet.getCathegory(cathegory);
+        $scope.competitor = competitors.get(competitorId) || {'name' : '- Unkown -'};
+        $scope.cathegoryDescription = ruleSet.getCathegory(cathegory);
         $scope.commit = function commitAndReturn(){
-            $scope.competitor.score = 5.00;
+            $scope.competitor.score = $scope.score;
             $location.path("/");
         }
+        $scope.deductions = ruleSet.getDeductions(cathegory);
   });

@@ -1,25 +1,25 @@
-  <h2>New Competitor</h2>
+<h2>New Competitor</h2>
 
-  <form role="form" clas="form-inline" ng-submit="add()">
-      <div class="form-group">
-        <div class="input-group">
-        <div class="col-sm-3">
-            <input type="text" class="form-control"  placeholder="competitor's name" ng-model="newCompetitorName">
-        </div>
-        <div class="col-sm-3">
-            <input type="text" class="form-control col-sm-3"  placeholder="surnames" ng-model="newCompetitorSurnames">
-        </div>
-        <div class="col-sm-3">
-          <select class="form-control" 
-            ng-model="newCompetitorCathegorie" 
-            ng-options="cathegorie as cathegorie.label for cathegorie in cathegories"></select>
-        </div>
-          <span class="col-sm-3">
-                <button type="submit" class="btn btn-primary" >Add</button>
-          </span>
-        </div>
-      </div>
-  </form>
+<form role="form" clas="form-inline" ng-submit="add()">
+  <div class="form-group">
+    <div class="input-group">
+    <div class="col-sm-3">
+        <input type="text" class="form-control"  placeholder="competitor's name" ng-model="newCompetitorName">
+    </div>
+    <div class="col-sm-3">
+        <input type="text" class="form-control col-sm-3"  placeholder="surnames" ng-model="newCompetitorSurnames">
+    </div>
+    <div class="col-sm-3">
+      <select class="form-control" 
+        ng-model="newCompetitorCathegory" 
+        ng-options="cathegory as cathegory.label for cathegory in cathegories"></select>
+    </div>
+     <span class="col-sm-3">
+            <button type="submit" class="btn btn-primary" >Add</button>
+     </span>
+    </div>
+  </div>
+</form>
 <h2>Competitors</h2>
 <table class="table table-condensed">
   <thead>
@@ -27,13 +27,13 @@
             <th>#</th>
             <th>Name</th>
             <th>Surnames</th>
-            <th>Cathegorie</th>
+            <th>Cathegory</th>
             <th>Score</th>
             <th>Actions</th>
         </tr>
   </thead>
   <tbody>
-        <tr ng-repeat="competitor in competitors">
+        <tr class="animate-repeat"  ng-repeat="competitor in competitors">
             <td>
                 {{competitor.id}}
             </td>
@@ -44,7 +44,7 @@
                 {{competitor.surnames}}
             </td>
             <td>
-                {{competitor.cathegorie.label}}
+                {{competitor.cathegory.label}}
             </td>
             <td  ng-switch on="competitor.score || '_undefined_'">
                 <button  ng-switch-when="_undefined_" class="btn btn-default btn-sm" ng-click="performance(competitor)" >Perform</button>
@@ -54,6 +54,9 @@
                 <button class="btn btn-default btn-sm" ng-click="remove(competitor)">delete</button>
             </td>
         </tr>
+        <tr class="animate-repeat" ng-if="competitors.length == 0">
+            <td colspan="99">No competitors, use below form to add.</td>
+        </tr>
   </tbody>
-  </table>
+</table>
 

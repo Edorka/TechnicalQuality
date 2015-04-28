@@ -27,7 +27,7 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/execution/:cathegorie/:competitorId', {
+      .when('/execution/:cathegory/:competitorId', {
         templateUrl: 'views/execution.html',
         controller: 'ExecutionCtrl'
       })

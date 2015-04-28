@@ -44,6 +44,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
+      recess: {
+          files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+          tasks: ['recess:dist']
+      },  
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -133,6 +137,21 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+    // Less CSS compiling
+    recess: {
+        options: {
+            compile: true
+        },
+        dist: {
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/styles',
+                src: '{,*/}*.less',
+                dest: '.tmp/styles/',
+                ext: '.css'
+            }]
+        }
+    },    
 
     // Empties folders to start fresh
     clean: {

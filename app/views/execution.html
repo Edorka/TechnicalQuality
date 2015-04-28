@@ -1,3 +1,35 @@
-<h1>{{cathegorieDescription}} {{competitor.name}} {{competitor.surnames}}</h1>
+<script type="text/ng-template" id="deduction-type.html">
+  <span class="index">{{$index+ 1}}{{deductionType.order}} </span>
+  <img class="icon" ng-src="/images/{{deductionType.icon}}">
+  <span class="title">{{deductionType.name}}</span>
+</script>
 
-<button class="btn btn-main"  ng-click="commit()" >End and resume</button>
+<div class="row">
+    <div class="cathegory col-sm-3"><h4>{{cathegoryDescription}}</h4></div>
+    <div class="competitor-info col-sm-5">
+        <h3>{{competitor.name}} {{competitor.surnames}}</h3>
+    </div>
+    <div class="score col-sm-2">
+        <h2>
+        {{score | number : 2 }}
+        </h2>
+    </div>
+    <div class="timer col-sm-2">
+    </div>
+</div>
+<div class="row">
+    <h4>Select type of deduction</h4>
+    <ul class="deduction-types" >
+        <li class="deduction-type btn btn-default btn-lg"  
+            ng-repeat="deductionType in deductions track by deductionType.order" 
+            ng-include="'deduction-type.html'" >
+
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <button class="btn-block btn btn-primary"  ng-click="commit()" >
+        End and resume
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    </button>
+</div>
