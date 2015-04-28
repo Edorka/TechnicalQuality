@@ -27,11 +27,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/execution/:cathegory/:competitorId', {
+      .when('/execution/:category/:competitorId', {
         templateUrl: 'views/execution.html',
         controller: 'ExecutionCtrl'
       })
-      .when('/summary', {
+      .when('/summary/:category/:competitorId', {
         templateUrl: 'views/summary.html',
         controller: 'SummaryCtrl'
       })

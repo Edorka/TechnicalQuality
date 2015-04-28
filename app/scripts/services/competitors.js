@@ -24,7 +24,7 @@ angular.module('technicalQualityApp')
             id: newId,
             name: newCompetitor.name || 'Competitor  ' +  newId,
             surnames: newCompetitor.surnames || '',
-            cathegorie: newCompetitor.cathegorie
+            category: newCompetitor.category
         });
     };
     this.get = function getCompetitor(id){

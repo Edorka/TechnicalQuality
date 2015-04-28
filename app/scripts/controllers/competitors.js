@@ -16,9 +16,8 @@ angular.module('technicalQualityApp')
     }
     resetNewCompetitor();
     $scope.competitors = competitors.list();
-    $scope.cathegories = ruleSet.getCathegories();
-    $scope.newCompetitorCathegorie = $scope.cathegories[0];
-
+    $scope.categories = ruleSet.getCategories();
+    $scope.newCompetitorCategory = $scope.categories[0];
 
     $scope.remove = function removeCompetitor(competitor){
         competitors.remove(competitor.id);
@@ -27,13 +26,13 @@ angular.module('technicalQualityApp')
         competitors.add({
             name: $scope.newCompetitorName,
             surnames: $scope.newCompetitorSurnames,
-            cathegorie: $scope.newCompetitorCathegorie
+            category: $scope.newCompetitorCategory
         });
         resetNewCompetitor();
     };
     $scope.performance = function performance(competitor){
-        var cathegorieId = competitor.cathegorie.value;
-        $location.path("/execution/"+ cathegorieId +"/"+ competitor.id);
+        var categoryId = competitor.category.value;
+        $location.path("/execution/"+ categoryId +"/"+ competitor.id);
     }
 
   });

@@ -11,8 +11,8 @@
     </div>
     <div class="col-sm-3">
       <select class="form-control" 
-        ng-model="newCompetitorCathegory" 
-        ng-options="cathegory as cathegory.label for cathegory in cathegories"></select>
+        ng-model="newCompetitorCategory" 
+        ng-options="category as category.label for category in categories"></select>
     </div>
      <span class="col-sm-3">
             <button type="submit" class="btn btn-primary" >Add</button>
@@ -27,7 +27,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Surnames</th>
-            <th>Cathegory</th>
+            <th>Category</th>
             <th>Score</th>
             <th>Actions</th>
         </tr>
@@ -44,7 +44,7 @@
                 {{competitor.surnames}}
             </td>
             <td>
-                {{competitor.cathegory.label}}
+                {{competitor.category.label}}
             </td>
             <td  ng-switch on="competitor.score || '_undefined_'">
                 <button  ng-switch-when="_undefined_" class="btn btn-default btn-sm" ng-click="performance(competitor)" >Perform</button>
